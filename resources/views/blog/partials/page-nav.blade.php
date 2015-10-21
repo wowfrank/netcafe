@@ -15,7 +15,6 @@
                         @if(Auth::check())
                             <li>
                                 <a href="{{ route('social.logout') }}">
-                                    <img src="{{ Auth::user()->avatar }}" width="24" height="24" >
                                     {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                                 </a>
                             </li>
@@ -33,7 +32,6 @@
                 @if(Auth::check())
                     <li>
                         <a href="{{ route('social.logout') }}">
-                            <img src="{{ Auth::user()->avatar }}" width="24" height="24" >
                             {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                         </a>
                     </li>
