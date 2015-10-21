@@ -97,7 +97,7 @@ class AuthController extends Controller
         $authUsr->checkIfUserNeedsUpdating($data, $user);
 
         Auth::login($authUsr);
-        dd($authUsr);
+        
         //after login redirecting to home page
         return redirect($this->redirectPath());
     }
