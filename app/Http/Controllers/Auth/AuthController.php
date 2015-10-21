@@ -93,11 +93,11 @@ class AuthController extends Controller
             'avatar'=> $user->getAvatar()
         ];
 
-        $user = User::firstOrCreate($data);
-        $user->checkIfUserNeedsUpdating($data, $user);
+        $authUsr = User::firstOrCreate($data);
+        $authUsr->checkIfUserNeedsUpdating($data, $user);
 
-        Auth::login($user);
-
+        Auth::login($authUsr);
+        dd($authUsr);
         //after login redirecting to home page
         return redirect($this->redirectPath());
     }
