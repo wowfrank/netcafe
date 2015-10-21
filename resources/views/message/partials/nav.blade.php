@@ -12,12 +12,11 @@
                         <li><a href="/">{{ trans('messages.Home') }}</a></li>
                         <li><a href="{{ route('blog.index') }}">{{ trans('messages.Blog') }}</a></li>
                         <li class="active"><a href="#">{{ trans('messages.Messages') }}</a></li>
-                        @if(Auth::check())
+                        @if(Auth::user())
                             <li>
-                                <a href="{{ Auth::logout() }}">===
+                                <a href="#">===
                                 </a>
-                                {{ dd(Auth::user() )}}
-                            </li>
+                            </li>{{ dd(Auth::user()) }}
                         @endif
                     </ul>
                     <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>
