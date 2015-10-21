@@ -74,7 +74,7 @@ Route::get('/message/social/logout',
 			['as' => 'social.logout',
 			function() {
 				Auth::logout();
-				return redirect(Request::path());
+				return Redirect::route('/');
 			}]);
 
 // Message create and list
