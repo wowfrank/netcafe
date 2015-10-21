@@ -131,19 +131,21 @@
 	            <form action="{{ route('message.store') }}" method="POST">
 				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				    <input type="hidden" name="msg_uid" value="{{ !Auth::check() ? '': Auth::user()->id }}">
-				    <textarea class="form-control {{ Auth::check() ? '':'.disabled' }}" rows="3" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}"></textarea>
-				    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'.disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
-				    @if(!Auth::check())
-						<div class="dropdown">
-							<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">{{ trans('messages.Login') }}
-							<span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></li>
-								<li><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></li>
-								<li><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></li>
-							</ul>
-						</div>
-				    @endif
+				    <textarea class="form-control {{ Auth::check() ? '':'disabled' }}" rows="3" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}"></textarea>
+				    <div class="row">
+					    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
+					    @if(!Auth::check())
+							<div class="dropdown">
+								<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">{{ trans('messages.Login') }}
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></li>
+									<li><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></li>
+									<li><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></li>
+								</ul>
+							</div>
+					    @endif
+					</div>
 				</form>
 			</div>
         </div> <!-- /.row -->
