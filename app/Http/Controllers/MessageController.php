@@ -13,6 +13,8 @@ use Netcafe\Http\Requests\MessageCreateRequest;
 
 class MessageController extends Controller
 {
+    protected $fields = ['msg_content'];
+
     // this will list all messages we saved in our database
     public function listMessages() {
 
