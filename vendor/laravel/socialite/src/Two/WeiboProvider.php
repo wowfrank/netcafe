@@ -45,7 +45,7 @@ class WeiboProvider extends AbstractProvider implements ProviderInterface
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id' => $user['idstr'], 'nickname' => $user['name'],
+            'id' => $user['idstr'], 'nickname' => $user['screen_name'],
             'avatar' => $user['avatar_large'], 'name' => $user['name'], 
             'email' => 'from.weibo.'.$user['idstr'] . '@example.com',
         ]);

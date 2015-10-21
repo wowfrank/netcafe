@@ -62,7 +62,7 @@ class BaiduProvider extends AbstractProvider implements ProviderInterface
     {
         return (new User())->setRaw($user)->map([
             'id' => $this->openId, 'nickname' => $user['username'],
-            'name' => $user['username'], 'email' => 'from.baidu.'.$this->openId . '@example.com', 
+            'name' => $user['username'], 'email' => 'from.baidu.'.$user['userid'] . '@example.com', 
             'avatar' => 'http://tb.himg.baidu.com/sys/portrait/item/' . $user['portrait'],
         ]);
     }

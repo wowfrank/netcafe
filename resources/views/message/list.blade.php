@@ -126,12 +126,11 @@
     	@if(!Auth::check())
 	    <div class="row">
 	        <div class="col-md-6 col-md-offset-3">
-	        	<hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
+	        	<hr><hr><hr><hr><hr>
 	        	<h2>Login Using Social Sites</h2>
 	            <a class="btn btn-primary" href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a>
 	            <a class="btn btn-primary" href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a>
 	            <a class="btn btn-primary" href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a>
-	            <a class="btn btn-primary" href="{{ route('social.login', ['google']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a>
 	        </div>
 	    </div>
 	    <!-- else show the form -->
