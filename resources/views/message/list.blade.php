@@ -122,15 +122,6 @@
 @section('content')
 <div class="content-section" id="portfolio">
     <div class="container">
-    	<!-- show login if not auth -->
-    	@if(!Auth::check())
-	    <div class="row">
-	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></div>
-	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></div>
-	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></div>
-	    </div>
-	    <!-- else show the form -->
-	    @else
         <div class="row">
 	        <div class="col-md-12">
 
@@ -141,12 +132,21 @@
 				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				    <input type="hidden" name="msg_uid" value="{{ Auth::user()->id }}">
 				    <textarea class="form-control" rows="3" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}"></textarea>
-				    <button type="submit" class="btn btn-info btn-sm" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
+				    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'.disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
+				    @if(!Auth::check())
+						<div class="dropdown">
+							<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">{{ trans('messages.Login') }}
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></li>
+								<li><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></li>
+								<li><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></li>
+							</ul>
+						</div>
+				    @endif
 				</form>
 			</div>
         </div> <!-- /.row -->
-        @endif
-        <!-- endif -->
 
 		<section id="one" class="wrapper">
 			<div class="col-md-10">
