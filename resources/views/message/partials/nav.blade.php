@@ -14,7 +14,7 @@
                         <li class="active"><a href="#">{{ trans('messages.Messages') }}</a></li>
                         @if(Auth::check())
                             <li>
-                                <a href="{{ route('social.logout') }}">
+                                <a href="{{ route('social.logout') }}" style="color: #ec523f;">
                                     {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                                 </a>
                             </li>
@@ -31,7 +31,7 @@
                 <li class="active"><a href="#">{{ trans('messages.Messages') }}</a></li>
                 @if(Auth::check())
                     <li>
-                        <a href="{{ route('social.logout') }}">
+                        <a href="{{ route('social.logout') }}" style="color: #ec523f;">
                             {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                         </a>
                     </li>
