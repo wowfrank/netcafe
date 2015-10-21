@@ -41,7 +41,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
      *
      * @return \Laravel\Socialite\Two\AbstractProvider
      */
-    protected function createQqbDriver()
+    protected function createQqDriver()
     {
         $config = $this->app['config']['services.qq'];
 
