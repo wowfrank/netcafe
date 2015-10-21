@@ -142,7 +142,7 @@
 				    @endif
 				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				    <input type="hidden" name="msg_uid" value="{{ !Auth::check() ? '': Auth::user()->id }}">
-				    <textarea class="form-control {{ Auth::check() ? '':'disabled' }}" rows="3" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}">{{ $msg_content }}</textarea>
+				    <textarea class="form-control {{ Auth::check() ? '':'disabled' }}" rows="3" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}">{{ old('msg_content') }}</textarea>
 				    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
 					
 				</form>

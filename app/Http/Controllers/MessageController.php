@@ -18,15 +18,10 @@ class MessageController extends Controller
 
     // this will list all messages we saved in our database
     public function listMessages() {
-        $data = [];
-        foreach ($this->fields as $field => $default) {
-            $data[$field] = old($field, $default);
-        }
-
+        
     	return view('message.list')
     				->withMessages(Message::orderBy('created_at', 'desc')->paginate(config('home.numOfMessages')))
-                    ->withTitle(trans('messages.Messages'))
-                    ->withData($data);
+                    ->withTitle(trans('messages.Messages'));
     }
 
     // this will store a single message to our database
