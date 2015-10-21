@@ -94,7 +94,7 @@ class AuthController extends Controller
 
         $authUsr = User::firstOrCreate($data);
         $data['avatar'] =  $user->getAvatar();
-        $authUsr->checkIfUserNeedsUpdating($data, $user);
+        $authUsr->checkIfUserNeedsUpdating($data, $authUsr);
 
         Auth::login($authUsr);
         
