@@ -135,7 +135,7 @@
 				    <div class="row">
 					    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
 					    @if(!Auth::check())
-							<div class="dropdown">
+							<div class="dropdown" style="width: 150px;">
 								<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">{{ trans('messages.Login') }}
 								<span class="caret"></span></button>
 								<ul class="dropdown-menu">
