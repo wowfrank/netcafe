@@ -3,7 +3,7 @@
 @section('styles')
 <style>
 .content-section {
-		margin-top: 15px;
+		margin-top: 150px;
 		padding-top: 10px;
 }
 /* Spotlight */
@@ -125,13 +125,9 @@
     	<!-- show login if not auth -->
     	@if(!Auth::check())
 	    <div class="row">
-	        <div class="col-md-6 col-md-offset-3">
-	        	<hr><hr><hr><hr><hr>
-	        	<h2>Login Using Social Sites</h2>
-	            <a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a>
-	            <a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a>
-	            <a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a>
-	        </div>
+	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></div>
+	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></div>
+	        <div class="col-md-2 col-md-offset-2"><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></div>
 	    </div>
 	    <!-- else show the form -->
 	    @else
@@ -165,7 +161,7 @@
 						</section>
 					@endforeach
 				@endif
-				{!! $messages->render() !!}
+				<div class="center"> {!! $messages->render() !!} </div>
        		</div>
 		</section>
     </div> <!-- /.container -->
