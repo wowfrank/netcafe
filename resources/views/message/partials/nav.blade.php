@@ -15,8 +15,8 @@
                         @if(Auth::check())
                             <li>
                                 <a href="{{ Auth::logout() }}">===
-                                {{ dd(Auth::user() )}}
                                 </a>
+                                {{ dd(Auth::user() )}}
                             </li>
                         @endif
                     </ul>
