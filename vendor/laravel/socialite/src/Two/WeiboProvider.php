@@ -13,7 +13,7 @@ class WeiboProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://api.weibo.com/oauth2/authorize', $state);
+        return $this->buildAuthUrlFromBase('https://api.weibo.com/oauth2/authorize', $state). '&display=popup';
     }
 
     /**

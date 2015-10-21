@@ -27,7 +27,7 @@ class QqProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://graph.qq.com/oauth2.0/authorize', $state);
+        return $this->buildAuthUrlFromBase('https://graph.qq.com/oauth2.0/authorize', $state). '&display=popup';
     }
 
     /**

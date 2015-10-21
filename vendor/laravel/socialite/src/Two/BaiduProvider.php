@@ -27,7 +27,7 @@ class BaiduProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('http://openapi.baidu.com/oauth/2.0/authorize', $state);
+        return $this->buildAuthUrlFromBase('http://openapi.baidu.com/oauth/2.0/authorize', $state) . '&display=popup';
     }
 
     /**
