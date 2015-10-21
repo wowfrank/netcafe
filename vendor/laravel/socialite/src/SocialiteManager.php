@@ -27,6 +27,48 @@ class SocialiteManager extends Manager implements Contracts\Factory
      *
      * @return \Laravel\Socialite\Two\AbstractProvider
      */
+    protected function createBaiduDriver()
+    {
+        $config = $this->app['config']['services.baidu'];
+
+        return $this->buildProvider(
+            'Laravel\Socialite\Two\BaiduProvider', $config
+        );
+    }
+
+    /**
+     * Create an instance of the specified driver.
+     *
+     * @return \Laravel\Socialite\Two\AbstractProvider
+     */
+    protected function createQqbDriver()
+    {
+        $config = $this->app['config']['services.qq'];
+
+        return $this->buildProvider(
+            'Laravel\Socialite\Two\QqProvider', $config
+        );
+    }
+
+    /**
+     * Create an instance of the specified driver.
+     *
+     * @return \Laravel\Socialite\Two\AbstractProvider
+     */
+    protected function createWeiboDriver()
+    {
+        $config = $this->app['config']['services.weibo'];
+
+        return $this->buildProvider(
+            'Laravel\Socialite\Two\WeiboProvider', $config
+        );
+    }
+
+    /**
+     * Create an instance of the specified driver.
+     *
+     * @return \Laravel\Socialite\Two\AbstractProvider
+     */
     protected function createGithubDriver()
     {
         $config = $this->app['config']['services.github'];
