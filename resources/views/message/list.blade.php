@@ -162,7 +162,7 @@
 						</section>
 					@endforeach
 				@endif
-				<div class="center"> {!! $messages->render() !!} </div>
+				<div class="text-center"> {!! $messages->render() !!} </div>
        		</div>
 		</section>
     </div> <!-- /.container -->
