@@ -54,9 +54,9 @@ class User extends Model implements AuthenticatableContract,
     {
 
         $socialData = [
-            'avatar' => $userData->avatar,
-            'email' => $userData->email,
-            'name' => $userData->name,
+            'avatar' => $userData['avatar'],
+            'email' => $userData['email'],
+            'name' => $userData['name'],
         ];
         $dbData = [
             'avatar' => $user->avatar,
@@ -65,9 +65,9 @@ class User extends Model implements AuthenticatableContract,
         ];
 
         if (!empty(array_diff($socialData, $dbData))) {
-            $user->avatar = $userData->avatar;
-            $user->email = $userData->email;
-            $user->name = $userData->name;
+            $user->avatar = $userData['avatar'];
+            $user->email = $userData['email'];
+            $user->name = $userData['name'];
             $user->save();
         }
     }
