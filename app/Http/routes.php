@@ -70,6 +70,12 @@ Route::group([
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
 Route::post('/auth/login', 'Auth\AuthController@postLogin');
 Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+Route::get('/message/social/logout',
+			['as' => 'social.logout',
+			function() {
+				Auth::logout();
+				return redirect(Request::path());
+			}]);
 
 // Message create and list
 Route::get('message',  
