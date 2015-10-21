@@ -57,17 +57,20 @@ class User extends Model implements AuthenticatableContract,
             'avatar' => $userData['avatar'],
             'email' => $userData['email'],
             'name' => $userData['name'],
+            'avatar' => $userData['avatar'],
         ];
         $dbData = [
             'avatar' => $user->avatar,
             'email' => $user->email,
             'name' => $user->name,
+            'avatar' => $user->avatar,
         ];
 
         if (!empty(array_diff($socialData, $dbData))) {
             $user->avatar = $userData['avatar'];
             $user->email = $userData['email'];
             $user->name = $userData['name'];
+            $user->avatar = $userData['avatar'];
             $user->save();
         }
     }
