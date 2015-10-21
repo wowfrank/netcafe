@@ -12,11 +12,11 @@
                         <li><a href="/">{{ trans('messages.Home') }}</a></li>
                         <li class="active"><a href="#">{{ trans('messages.Blog') }}</a></li>
                         <li><a href="{{ route('message.list') }}">{{ trans('messages.Messages') }}</a></li>
-                        @if(Auth::user())
+                        @if(Auth::check())
                             <li>
-                                <a href="{{ Auth::logout() }}">
-                                    <img src="{{ Auth::user()->avatar }}" width="24" height="24" />
-                                    {{ Auth::user()->name }}-{{ trans('messages.Logout') }}
+                                <a href="{{ route('social.logout') }}">
+                                    <img src="{{ Auth::user()->avatar }}" width="24" height="24" >
+                                    {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                                 </a>
                             </li>
                         @endif
@@ -30,11 +30,11 @@
                 <li><a href="/">{{ trans('messages.Home') }}</a></li>
                 <li class="active"><a href="#">{{ trans('messages.Blog') }}</a></li>
                 <li><a href="route('message.list')">{{ trans('messages.Messages') }}</a></li>
-                @if(Auth::user())
+                @if(Auth::check())
                     <li>
-                        <a href="{{ Auth::logout() }}">
-                            <img src="{{ Auth::user()->avatar }}" width="24" height="24" />
-                            {{ Auth::user()->name }}-{{ trans('messages.Logout') }}
+                        <a href="{{ route('social.logout') }}">
+                            <img src="{{ Auth::user()->avatar }}" width="24" height="24" >
+                            {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                         </a>
                     </li>
                 @endif
