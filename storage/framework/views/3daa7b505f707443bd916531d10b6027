@@ -121,100 +121,53 @@
 <div class="content-section" id="portfolio">
     <div class="container">
     	<!-- show login if not auth -->
-    	<?php if(!Auth::user()): ?>
+    	<?php if(!Auth::check()): ?>
 	    <div class="row">
 	        <div class="col-md-6 col-md-offset-3">
 	        	<h2>Login Using Social Sites</h2>
 	            <a class="btn btn-primary" href="<?php echo e(route('social.login', ['baidu'])); ?>"><img src="<?php echo e(asset('images/baidu-login-short.png')); ?>" /></a>
 	            <a class="btn btn-primary" href="<?php echo e(route('social.login', ['qq'])); ?>"><img src="<?php echo e(asset('images/qq-login-short.png')); ?>" /></a>
 	            <a class="btn btn-primary" href="<?php echo e(route('social.login', ['weibo'])); ?>"><img src="<?php echo e(asset('images/weibo-login-short.png')); ?>" /></a>
-	            <a class="btn btn-primary" href="<?php echo e(route('social.login', ['google'])); ?>">Google</a>
 	        </div>
 	    </div>
 	    <!-- else show the form -->
 	    <?php else: ?>
         <div class="row">
 	        <div class="col-md-12">
-	        	<div class="alert alert-danger hidden" id='sendMsg-errors'>
-					<strong>Whoops!</strong>
-					<?php echo e(trans('messages.There were some problems with your input.')); ?><br><br>
-					<ul></ul>
-				</div>
-				<div class="alert alert-success hidden" id='sendMsg-done'>
-					<strong><i class="fa fa-check-circle fa-lg fa-fw"></i> <?php echo e(trans('messages.Success')); ?>. </strong>
-					<?php echo e(Session::get('success')); ?>
 
-				</div>
-	            <form action="#" method="POST">
+				<?php echo $__env->make('admin.partials.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				<?php echo $__env->make('admin.partials.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	            <form action="<?php echo e(route('message.store')); ?>" method="POST">
 				    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 				    <input type="hidden" name="msg_uid" value="<?php echo e(Auth::user()->id); ?>">
 				    <textarea class="form-control" rows="3" name="msg_content" id="msg_content" autofocus placeholder="<?php echo e(trans('messages.Please tell us your feelings')); ?>"></textarea>
-				    <button type="button" class="btn btn-info btn-sm" name="sendMsg" id="sendMsg"><?php echo e(trans('messages.Send')); ?></button>
+				    <button type="submit" class="btn btn-info btn-sm" name="sendMsg" id="sendMsg"><?php echo e(trans('messages.Send')); ?></button>
 				</form>
 			</div>
         </div> <!-- /.row -->
         <?php endif; ?>
         <!-- endif -->
 
-		<section id="two" class="wrapper">
-			<div class="inner alt">
-			<?php if(count($messages) > 0): ?>
-		        <?php foreach($messages as $message): ?>
-			        <section class="spotlight">
-						<div class="image"><img src="<?php echo e($message->user->avatar); ?>" alt="" /></div>
-						<div class="content">
-							<h3> <?php echo e($message->user->name); ?></h3>
-							<p> <?php echo e($message->msg_content); ?></p>
-						</div>
-					</section>
-				<?php endforeach; ?>
+		<section id="one" class="wrapper">
+			<div class="col-md-10">
+				<?php if(count($messages) > 0): ?>
+			        <?php foreach($messages as $message): ?>
+				        <section class="spotlight">
+							<div class="image"><img src="<?php echo e($message->user->avatar); ?>" alt="" /></div>
+							<div class="content">
+								<h3> <?php echo e($message->user->name); ?></h3>
+								<p> <?php echo e($message->msg_content); ?></p>
+							</div>
+						</section>
+					<?php endforeach; ?>
 				<?php endif; ?>
+				<?php echo $messages->render(); ?>
+
        		</div>
 		</section>
     </div> <!-- /.container -->
 </div> <!-- /#portfolio -->
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('scripts'); ?>
-<script>
-	(function($){
-		$('#sendMsg').click(function(e){
-			e.preventDefault();
-			$('.alert').addClass('hidden');
-			$('#sendMsg-errors ul').empty();
-
-			$(this).attr('disabled', 'disabled');
-			$.ajax({
-				url	:"<?php echo e(route('message.store')); ?>",
-				type:'POST',
-				data:{'_token': $('input[name=_token]').val(), 
-						'msg_content': $('textarea[name=msg_content').val(),
-						'msg_uid': $('input[name=msg_uid]').val(), 
-					},
-				success: function( data ){
-                    //$('#response pre').html( data );
-                    $('#sendMsg').removeAttr('disabled');
-                    $('#sendMsg-done').removeClass('hidden');
-
-                },
-                statusCode: {
-			        422: function(data) {
-			            // Something went wrong (error in data serverside), re-enable send button
-			            $('#sendMsg').removeAttr('disabled');
-			            $('#sendMsg-errors').removeClass('hidden');
-
-					    // Errors...
-					    var errors = $.parseJSON(data.responseText);
-					    $.each(errors, function(index, value) {
-					        $('#sendMsg-errors ul').append($('<li>').append(value));
-					    });
-			        }
-			    }
-			});
-		});
-		
-	})(jQuery);
-</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
