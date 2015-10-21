@@ -14,15 +14,19 @@ use Netcafe\Http\Requests\MessageCreateRequest;
 class MessageController extends Controller
 {
     protected $fields = [
-    'msg_content' => '',
-    'msg_uid' => '',];
+    'msg_content' => ''];
 
     // this will list all messages we saved in our database
     public function listMessages() {
+        $data = [];
+        foreach ($this->fields as $field => $default) {
+            $data[$field] = old($field, $default);
+        }
 
     	return view('message.list')
     				->withMessages(Message::orderBy('created_at', 'desc')->paginate(config('home.numOfMessages')))
-                    ->withTitle(trans('messages.Messages'));
+                    ->withTitle(trans('messages.Messages'))
+                    ->withData($data);
     }
 
     // this will store a single message to our database
