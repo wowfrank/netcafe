@@ -29,7 +29,13 @@
 		<div class="form-group">
 			<label for="page_image" class="col-md-2 control-label"> {{ trans('messages.Page Image') }} </label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" name="page_image" id="page_image" onchange="handle_image_change()" alt="Image thumbnail" value="{{ $page_image }}">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" onclick="$('#imageUploader').click();">{{ trans('messages.Upload') }}{{ trans('messages.Page Image') }}@</button>
+					</span>
+					<input type="text" class="form-control" name="page_image" id="page_image" value="{{ $page_image }}" placeholder="600*600" readonly="readonlyl">
+				</div><!-- /input-group -->
+				<input name="imageUploader" id="imageUploader" type="file" style="display: none;">
 			</div>
 		</div>
 		<div class="form-group">

@@ -155,6 +155,11 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /*
+         * Image Intervension Service Provider
+         */
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -205,10 +210,11 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         /*
-         * Html & Form Alias
+         * Html & Form Alias & Image
          */
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
 
         /*
          * Socialite currently supports authentication with Facebook, Twitter, LinkedIn, Google, GitHub and Bitbucket

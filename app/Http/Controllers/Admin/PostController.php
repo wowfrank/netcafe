@@ -14,6 +14,8 @@ use Netcafe\Http\Requests;
 use Netcafe\Http\Controllers\Controller;
 use Netcafe\Jobs\PostFormFields;
 
+use Intervention\Image\Facades\Image;
+
 class PostController extends Controller
 {
     /**
@@ -65,6 +67,30 @@ class PostController extends Controller
 
         // return redirect('admin/post/'.$post->slug.'/edit/')->withMessage($message);
         $post = Posts::create($request->postFillData());
+        $image =   $request->file('imageUploader');
+
+        try 
+        {
+            $extension      =   $image->getClientOriginalExtension();
+            $imageRealPath  =   $image->getRealPath();
+            $imageName      =   $post->id . '_'. $image->getClientOriginalName();
+            
+            //$imageManager = new ImageManager(); // use this if you don't want facade style code
+            //$img = $imageManager->make($imageRealPath);
+            
+            $img = Image::make($imageRealPath);
+            $img->fit(600, 600)
+                ->encode('jpg', 75)
+                ->save(public_path('images'). '/uploads/gallery/'. $imageName)
+                ->destroy();
+        }
+        catch(Exception $e)
+        {
+            return false;
+        }
+
+        $post->page_image = $imageName;
+        $post->save();
         $post->syncTags($request->get('tags', []));
 
         return redirect()

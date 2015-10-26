@@ -27,13 +27,14 @@ class PostCreateRequest extends Request
         return [
             //
             'title'         =>  'required|unique:posts|max:255',
-            'title'         =>  array('Regex:/^[A-Z-_a-z0-9]+$/'),
+            'title'         =>  array('Regex:/^[A-Z-_a-z0-9 ]+$/'),
             'content'       => 'required',
             'subtitle'      => 'required',
             'content'       => 'required',
             'publish_date'  => 'required',
             'publish_time'  => 'required',
             'layout'        => 'required',
+            'page_image'    => 'mime|jpeg,png,bmp,gif,svg,jpg',
         ];
     }
 

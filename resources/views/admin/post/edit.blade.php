@@ -27,7 +27,7 @@
 					@include('admin.partials.errors')
 					@include('admin.partials.success')
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ route('admin.post.update', $id) }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ route('admin.post.update', $id) }}" enctype="multipart/form-data">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="_method" value="PUT">
 
