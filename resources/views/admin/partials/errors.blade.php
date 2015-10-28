@@ -3,7 +3,7 @@
 		<strong>Whoops!</strong>
 		{{ trans('messages.There were some problems with your input.') }}<br><br>
 		<ul>
-			@foreach ($errors->all() as $error)
+			@foreach ($errors->all() as $key => $error)
 			<li>{{ $error }}</li>
 			@endforeach
 		</ul>

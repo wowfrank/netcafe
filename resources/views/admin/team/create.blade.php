@@ -26,7 +26,7 @@
 
 						@include('admin.partials.errors')
 
-						<form class="form-horizontal" role="form" method="POST" action="/admin/team">
+						<form class="form-horizontal" role="form" method="POST" action="/admin/team"  enctype="multipart/form-data">
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 							@include('admin.team._form')

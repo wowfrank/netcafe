@@ -11,6 +11,7 @@
         	{title: 'Image Thumbnail', value: 'img-thumbnail'},
         ],
 	});
+	
 </script>
 <div class="row">
 	<div class="col-md-8">
@@ -33,8 +34,8 @@
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button" onclick="$('#imageUploader').click();">{{ trans('messages.Upload') }}{{ trans('messages.Page Image') }}@</button>
 					</span>
-					<input type="text" class="form-control" name="page_image" id="page_image" value="{{ $page_image }}" placeholder="600*600" readonly="readonlyl">
-				</div><!-- /input-group -->
+					<input type="text" class="form-control" name="page_image" id="page_image" value="{{ $page_image }}" placeholder="600*600" readonly="readonly">
+				</div>
 				<input name="imageUploader" id="imageUploader" type="file" style="display: none;">
 			</div>
 		</div>

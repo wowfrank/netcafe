@@ -15,7 +15,13 @@
 <div class="form-group">
 	<label for="imgname" class="col-md-3 control-label"> {{ trans('messages.Image Name') }} </label>
 	<div class="col-md-8">
-		<input type="text" class="form-control" name="imgname" id="imgname" value="{{ $imgname }}">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick="$('#imageUploader').click();">{{ trans('messages.Upload') }}{{ trans('messages.Image Name') }}@</button>
+			</span>
+			<input type="text" class="form-control" name="imgname" id="imgname" value="{{ $imgname }}" placeholder="500*500" readonly="readonly">
+		</div>
+		<input name="imageUploader" id="imageUploader" type="file" style="display: none;">
 	</div>
 </div>
 

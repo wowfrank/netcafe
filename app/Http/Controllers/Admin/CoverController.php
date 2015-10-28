@@ -11,6 +11,8 @@ use Netcafe\Http\Requests\CoverCreateRequest;
 use Netcafe\Http\Requests\CoverUpdateRequest;
 use Netcafe\Models\Cover;
 
+use Intervention\Image\Facades\Image;
+
 class CoverController extends Controller
 {
     protected $fields = [
@@ -64,6 +66,28 @@ class CoverController extends Controller
         foreach (array_keys($this->fields) as $field) {
             $cover->$field = $request->get($field);
         }
+
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $cover->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(1600, 750)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/slider/'. $imageName)
+                    ->destroy();
+                $cover->name = $imageName;
+                $cover->save();
+            } catch(Exception $e) {
+                return false;
+            }
+        }
         $cover->save();
 
         return redirect('/admin/cover')
@@ -114,6 +138,28 @@ class CoverController extends Controller
         foreach (array_keys(array_except($this->fields, ['cover'])) as $field) {
             $cover->$field = $request->get($field);
         }
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $cover->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(1600, 750)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/slider/'. $imageName)
+                    ->destroy();
+                $cover->name = $imageName;
+                $cover->save();
+            } catch(Exception $e) {
+                return false;
+            }
+        }
+
         $cover->save();
 
         return redirect("/admin/cover/$id/edit")

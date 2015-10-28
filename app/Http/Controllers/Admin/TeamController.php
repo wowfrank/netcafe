@@ -11,6 +11,8 @@ use Netcafe\Models\Team;
 use Netcafe\Http\Requests\TeamCreateRequest;
 use Netcafe\Http\Requests\TeamUpdateRequest;
 
+use Intervention\Image\Facades\Image;
+
 class TeamController extends Controller
 {
     protected $fields = [
@@ -71,6 +73,29 @@ class TeamController extends Controller
         foreach (array_keys($this->fields) as $field) {
             $team->$field = $request->get($field);
         }
+        
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $team->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(500, 500)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/team/'. $imageName)
+                    ->destroy();
+
+                $team->imgname = $imageName;
+            } catch(Exception $e) {
+                return false;
+            }
+        }
+
         $team->save();
 
         return redirect('/admin/team')
@@ -121,6 +146,27 @@ class TeamController extends Controller
         foreach (array_keys(array_except($this->fields, ['team'])) as $field) {
             $team->$field = $request->get($field);
         }
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $team->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(500, 500)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/team/'. $imageName)
+                    ->destroy();
+                $team->imgname = $imageName;
+            } catch(Exception $e) {
+                return false;
+            }
+        }
+
         $team->save();
 
         return redirect("/admin/team/$id/edit")

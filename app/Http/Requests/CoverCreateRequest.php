@@ -25,7 +25,8 @@ class CoverCreateRequest extends Request
     {
         return [
             //
-            'name'          => 'required',
+            // 'name'          => 'required',
+            'imageUploader' => 'image|mimes:jpeg,png,bmp,gif,svg,jpg',
             'title'         => 'required',
             'subtitle'      => 'required',
         ];

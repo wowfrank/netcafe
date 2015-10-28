@@ -5,6 +5,7 @@ namespace Netcafe\Http\Controllers\Admin;
 use Netcafe\Models\Posts;
 use Netcafe\User;
 use Redirect;
+
 use Netcafe\Http\Redirect\PostFormRequest;
 use Netcafe\Http\Requests\PostCreateRequest;
 use Netcafe\Http\Requests\PostUpdateRequest;
@@ -67,30 +68,27 @@ class PostController extends Controller
 
         // return redirect('admin/post/'.$post->slug.'/edit/')->withMessage($message);
         $post = Posts::create($request->postFillData());
-        $image =   $request->file('imageUploader');
-
-        try 
-        {
-            $extension      =   $image->getClientOriginalExtension();
-            $imageRealPath  =   $image->getRealPath();
-            $imageName      =   $post->id . '_'. $image->getClientOriginalName();
-            
-            //$imageManager = new ImageManager(); // use this if you don't want facade style code
-            //$img = $imageManager->make($imageRealPath);
-            
-            $img = Image::make($imageRealPath);
-            $img->fit(600, 600)
-                ->encode('jpg', 75)
-                ->save(public_path('images'). '/uploads/gallery/'. $imageName)
-                ->destroy();
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $post->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(600, 600)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/gallery/'. $imageName)
+                    ->destroy();
+                $post->page_image = $imageName;
+                $post->save();
+            } catch(Exception $e) {
+                return false;
+            }
         }
-        catch(Exception $e)
-        {
-            return false;
-        }
-
-        $post->page_image = $imageName;
-        $post->save();
         $post->syncTags($request->get('tags', []));
 
         return redirect()
@@ -126,42 +124,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(PostUpdateRequest  $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
-        //
-        // $post_id = $request->input('post_id');
-        // if($post) {
-        //     $title = $request->input('title');
-        //     $slug = str_slug($title);
-        //     $duplicate = Posts::where('slug',$slug)->first();
-        //     if($duplicate) {
-        //         if($duplicate->id != $post_id)
-        //             return redirect('/admin/post/'.$post->slug.'/edit/')->withErrors('Title already exists.')->withInput();
-        //         else 
-        //             $post->slug = $slug;
-        //     }
-
-        //     $post->title = $title;
-        //     $post->body = $request->input('body');
-
-        //     if($request->has('save')) {
-        //         $post->active = 0;
-        //         $message = 'Post saved successfully';
-        //         $landing = 'edit/'.$post->slug;
-        //     } else {
-        //         $post->active = 1;
-        //         $message = 'Post updated successfully';
-        //         $landing = $post->slug;
-        //     }
-        //     $post->save();
-
-        //     return redirect($landing)->withMessage($message);
-        // } else {
-        //     return redirect('/admin/post/'.$post->slug.'/edit/')->withErrors('you have not sufficient permissions');
-        // }
         $post = Posts::findOrFail($id);
 
         $post->fill($request->postFillData());
+        if($request->hasFile('imageUploader')) {
+            try  {
+                $image          =   $request->file('imageUploader');
+                $extension      =   $image->getClientOriginalExtension();
+                $imageRealPath  =   $image->getRealPath();
+                $imageName      =   $post->id . '_'. $image->getClientOriginalName();
+                
+                //$imageManager = new ImageManager(); // use this if you don't want facade style code
+                //$img = $imageManager->make($imageRealPath);
+                
+                $img = Image::make($imageRealPath);
+                $img->fit(600, 600)
+                    ->encode('jpg', 75)
+                    ->save(public_path('images'). '/uploads/gallery/'. $imageName)
+                    ->destroy();
+                $post->page_image = $imageName;
+            } catch(Exception $e) {
+                return false;
+            }
+        }
+
         $post->save();
         $post->syncTags($request->get('tags', []));
 

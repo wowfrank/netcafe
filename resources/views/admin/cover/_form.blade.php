@@ -1,7 +1,13 @@
 <div class="form-group">
 	<label for="name" class="col-md-3 control-label"> {{ trans('messages.Name') }} </label>
 	<div class="col-md-8">
-		<input type="text" class="form-control" name="name" id="name" value="{{ $name }}">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick="$('#imageUploader').click();">{{ trans('messages.Upload') }}{{ trans('messages.Name') }}@</button>
+			</span>
+			<input type="text" class="form-control" name="name" id="name" value="{{ $name }}" placeholder="1600*750" readonly="readonly">
+		</div>
+		<input name="imageUploader" id="imageUploader" type="file" style="display: none;">
 	</div>
 </div>
 
@@ -36,7 +42,18 @@
 
 <div class="form-group">
 	<label for="active" class="col-md-3 control-label"> {{ trans('messages.Status') }} </label>
+	
 	<div class="col-md-8">
-		<input type="checkbox" name="active" id="active" value= "{{ true }}" @if($active) checked='chekced' @endif>
+		<select name="active" id="active" class="form-control">
+			<option @if ($active == 1) selected @endif
+				value="1">
+				{{ trans('messages.In Use') }}
+			</option>
+
+			<option @if ($active == 0) selected @endif
+				value="0">
+				{{ trans('messages.Not In Use') }}
+			</option>
+		</select>
 	</div>
 </div>

@@ -3,7 +3,7 @@
 		<strong>Whoops!</strong>
 		<?php echo e(trans('messages.There were some problems with your input.')); ?><br><br>
 		<ul>
-			<?php foreach($errors->all() as $error): ?>
+			<?php foreach($errors->all() as $key => $error): ?>
 			<li><?php echo e($error); ?></li>
 			<?php endforeach; ?>
 		</ul>

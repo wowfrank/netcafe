@@ -28,10 +28,10 @@ class TeamCreateRequest extends Request
         // dd($this->input('status'));die;
         return [
             //
-            'name'      => 'required',
+            'name'      => 'required|between:2,10',
             'phone'     => 'required|digits_between:10,12',
             'gender'    => 'required|boolean',
-            'imgname'   => 'required',
+            'imageUploader' => 'image|mimes:jpeg,png,bmp,gif,svg,jpg',
         ];
     }
 }
