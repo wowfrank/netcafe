@@ -64,50 +64,42 @@
 </div> <!-- /#contact -->
 
 <!-- Load Google Map3 Asynchronously -->
-    <script>
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
+<script>
+    function loadMapAPI() {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'http://maps.google.cn/maps/api/js?sensor=true&language=zh-CN&callback=mapInit';
+            document.body.appendChild(script);
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map_canvas'), {
-    center: {lat: {{config('services.googlemapapi.lat')}}, lng: {{config('services.googlemapapi.lng')}}},
-    zoom: 15
-  });
-  var infoWindow = new google.maps.InfoWindow({map: map});
+            var scriptGM = document.createElement('script');
+            scriptGM.type = 'text/javascript';
+            scriptGM.src = '/js/vendor/jquery.gmap3.min.js';
+            document.body.appendChild(scriptGM);
+        }
 
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+    function mapInit() {
+        // Map Initialization Code
+        $('#map_canvas').gmap3({
+            marker:{
+                address: '{{ config("blog.position_coords") }}',
+                callback: function() {
+                    $(this).css('border', '5px solid orange');
+                }
+            },
+            map:{
+                options:{
+                    zoom: 15,
+                    scrollwheel: false,
+                    streetViewControl : true
+                }
+            }
+        });
+    }
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-}
-
-    </script>
-    <script src="http://maps.google.cn/maps/api/js?key={{config('services.googlemapapi.google_api_key')}}&signed_in=true&language=zh-CN&callback=initMap"
-        async defer>
-    </script>
+    (function ($) {
+        $(window).load(loadMapAPI);
+    })(jQuery);
+</script>
 
 
         
