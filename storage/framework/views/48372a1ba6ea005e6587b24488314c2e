@@ -68,7 +68,7 @@
     function loadMapAPI() {
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'http://maps.google.cn/maps/api/js?sensor=true&language=zh-CN&callback=mapInit';
+        script.src = 'http://maps.google.cn/maps/api/js?language=zh-CN&callback=mapInit';
         document.body.appendChild(script);
 
         var scriptGM = document.createElement('script');

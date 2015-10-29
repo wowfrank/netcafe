@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-	<?php echo $__env->make('blog.partials.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-</head>
-<body>
-<!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-<![endif]-->
-<?php echo $__env->yieldContent('page-header'); ?>
-<?php echo $__env->make('message.partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->yieldContent('content'); ?>
+	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+	<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+	<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<?php echo $__env->make('blog.partials.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</head>
+	<body>
+	<!--[if lt IE 7]>
+	    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
+	<?php echo $__env->yieldContent('page-header'); ?>
+	<?php echo $__env->make('message.partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->yieldContent('content'); ?>
 
-<?php echo $__env->make('include.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('include.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+	<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/plugins.js"></script>
+	<script src="/js/main.js"></script>
 
-<?php /* Scripts */ ?>
-<?php echo $__env->yieldContent('scripts'); ?>
 
-</body>
+	<?php /* Scripts */ ?>
+	<?php echo $__env->yieldContent('scripts'); ?>
+	</body>
 </html>

@@ -16,10 +16,9 @@
 <!-- Custom styles -->
 <link rel="stylesheet" href="/css/styles.css">
 
-<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-<script src="/js/bootstrap.js"></script>
-<script src="/js/plugins.js"></script>
-<script src="/js/main.js"></script>
+<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="js/vendor/jquery-2.1.3.min.js"></script>
+
 @yield('styles')
 
 {{-- HTML5 Shim and Respond.js for IE8 support --}}
