@@ -4,17 +4,17 @@
             <div class="row">
                 <div class="logo-wrapper col-md-4 col-sm-2 col-xs-8">
                     <h1>
-                        <a href="/">{{ trans('messages.Netcafe') }}</a>
+                        <a href="{{ route('/') }}">{{ trans('messages.Netcafe') }}</a>
                     </h1>
                 </div> <!-- /.logo-wrapper -->
                 <div class="col-md-8 col-sm-10 col-xs-4 main-menu text-right">
                     <ul class="menu-first hidden-sm hidden-xs">
-                        <li><a href="/">{{ trans('messages.Home') }}</a></li>
+                        <li><a href="#" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
                         <li class="active"><a href="#">{{ trans('messages.Blog') }}</a></li>
-                        <li><a href="{{ route('message.list') }}">{{ trans('messages.Messages') }}</a></li>
+                        <li><a href="#" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
                         @if(Auth::check())
                             <li>
-                                <a href="{{ route('social.logout') }}" style="color: #ec523f;">
+                                <a href="#" style="color: #ec523f;" onclick="window.location.href ='{{ route('social.logout') }}'; ">
                                     {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                                 </a>
                             </li>
@@ -26,12 +26,12 @@
         </div> <!-- /#menu-wrapper -->
         <div class="menu-responsive hidden-md hidden-lg">
             <ul>
-                <li><a href="/">{{ trans('messages.Home') }}</a></li>
-                <li class="active"><a href="#">{{ trans('messages.Blog') }}</a></li>
-                <li><a href="route('message.list')">{{ trans('messages.Messages') }}</a></li>
+                <li><a href="#" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
+                <li class="active"><a href="#" >{{ trans('messages.Blog') }}</a></li>
+                <li><a href="#" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
                 @if(Auth::check())
                     <li>
-                        <a href="{{ route('social.logout') }}" style="color: #ec523f;">
+                        <a href="#" style="color: #ec523f;" onclick="window.location.href ='{{ route('social.logout') }}'; ">
                             {{ Auth::user()->name }} - {{ trans('messages.Logout') }}
                         </a>
                     </li>
