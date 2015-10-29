@@ -81,7 +81,7 @@
         // Map Initialization Code
         $('#map_canvas').gmap3({
             marker:{
-                address: '{{ config("blog.position_coords") }}',
+                address: '{{ config("services.googlemapapi.lat") }}, {{ config("services.googlemapapi.lng") }}',
                 callback: function() {
                     $(this).css('border', '5px solid orange');
                 }
