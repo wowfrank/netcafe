@@ -15,5 +15,4 @@
 							],
 		// 'contactEmail'	=>	'frank.qf.cn@gmail.com',
 		'contactEmail'	=>	'71636682qf@sina.com',
-		'position_coords'	=> '29.253485, 120.235587',
 	];

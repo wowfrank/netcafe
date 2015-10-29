@@ -36,24 +36,29 @@ return [
     ],
 
     'baidu' => [
-        'client_id' => env('BAIDU_KEY'),
-        'client_secret' => env('BAIDU_SECRET'),
-        'redirect' => env('BAIDU_REDIRECT_URI'),
+        'client_id'         => env('BAIDU_KEY'),
+        'client_secret'     => env('BAIDU_SECRET'),
+        'redirect'          => env('BAIDU_REDIRECT_URI'),
     ],
     'qq' => [
-        'client_id' => env('QQ_KEY'),
-        'client_secret' => env('QQ_SECRET'),
-        'redirect' => env('QQ_REDIRECT_URI'),
+        'client_id'         => env('QQ_KEY'),
+        'client_secret'     => env('QQ_SECRET'),
+        'redirect'          => env('QQ_REDIRECT_URI'),
     ],
     'weibo' => [
-        'client_id' => env('WEIBO_KEY'),
-        'client_secret' => env('WEIBO_SECRET'),
-        'redirect' => env('WEIBO_REDIRECT_URI'),
+        'client_id'         => env('WEIBO_KEY'),
+        'client_secret'     => env('WEIBO_SECRET'),
+        'redirect'          => env('WEIBO_REDIRECT_URI'),
     ],
     'weixinweb' => [
-        'client_id' => env('WEIXINWEB_KEY'),
-        'client_secret' => env('WEIXINWEB_SECRET'),
-        'redirect' => env('WEIXINWEB_REDIRECT_URI'),
+        'client_id'          => env('WEIXINWEB_KEY'),
+        'client_secret'      => env('WEIXINWEB_SECRET'),
+        'redirect'           => env('WEIXINWEB_REDIRECT_URI'),
+    ],
+    'googlemapapi' => [
+        'google_api_key'    => env('GOOGLE_GMAP_API_KEY'),
+        'lat'               => env('GMAP_LATITUDE'),
+        'lng'              => env('GMAP_LONGITUDE'),
     ],
 
 ];
