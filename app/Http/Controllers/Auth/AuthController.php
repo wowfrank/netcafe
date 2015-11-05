@@ -29,6 +29,8 @@ class AuthController extends Controller
     // use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     // User registration is not allowed!
     use AuthenticatesUsers;
+    use ThrottlesLogins;
+
     protected $redirectAfterLogout = '/auth/login';
     protected $redirectTo = '/admin/post';
     protected $redirectPath = null;

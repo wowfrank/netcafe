@@ -133,9 +133,9 @@
 
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo e(route('social.login', ['baidu'])); ?>"><img src="<?php echo e(asset('images/baidu-login-short.png')); ?>" /></a></li>
-								<li><a href="<?php echo e(route('social.login', ['qq'])); ?>"><img src="<?php echo e(asset('images/qq-login-short.png')); ?>" /></a></li>
-								<li><a href="<?php echo e(route('social.login', ['weibo'])); ?>"><img src="<?php echo e(asset('images/weibo-login-short.png')); ?>" /></a></li>
+								<li><a href="javascript:void(0);" name="Baidu login form" title="Baidu login form" onClick='login("<?php echo e(route('social.login', ['baidu'])); ?>");'><img src="<?php echo e(asset('images/baidu-login-short.png')); ?>" /></a></li>
+								<li><a href="javascript:void(0);" name="QQ login form" title="QQ login form" onClick='login("<?php echo e(route('social.login', ['qq'])); ?>");'><img src="<?php echo e(asset('images/qq-login-short.png')); ?>" /></a></li>
+								<li><a href="javascript:void(0);" name="Weibo login form" title="Weibo login form" onClick='login("<?php echo e(route('social.login', ['weibo'])); ?>");'><img src="<?php echo e(asset('images/weibo-login-short.png')); ?>" /></a></li>
 							</ul>
 						</div>
 				    <?php endif; ?>
@@ -166,6 +166,23 @@
 		</section>
     </div> <!-- /.container -->
 </div> <!-- /#portfolio -->
+<script>
+function login(_url) {
+	var win         =   window.open(_url, "", "width=750,height=450"); 
+
+    var pollTimer   =   window.setInterval(function() { 
+        try {
+            console.log(win.document.URL);
+            if (win.document.URL.indexOf(REDIRECT) != -1) {
+                window.clearInterval(pollTimer);
+                var url =   win.document.URL;
+                win.close();
+            }
+        } catch(e) {
+        }
+    }, 500);
+}
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
