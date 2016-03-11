@@ -2,7 +2,7 @@
 @section('content')
 <style>
 .content-section {
-		margin-top: 15px;
+		margin-top: 125px;
 		padding-top: 10px;
 }
 </style>
@@ -18,9 +18,11 @@
                             <h3><a href="/blog/{{ $blog->slug }}" id="blogTitle" >
                                             {{ $blog->subtitle }}</a></h3>
                             <p style="margin: 0 0 5px;">{!! str_limit(strip_tags($blog->content_raw), $limit = 150, $end = '...') !!}</p>
+                            @if(false)
                             <a href="/images/uploads/gallery/{{ $blog->page_image }}" data-rel="lightbox" class="expand">
                                 <i class="fa fa-search"></i>
                             </a>
+                            @endif
                         </div> <!-- /.portfolio-overlay -->
                     </div> <!-- /.portfolio-thumb -->
                 </div> <!-- /.portfolio-item -->

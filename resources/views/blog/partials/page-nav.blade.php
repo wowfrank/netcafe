@@ -9,9 +9,9 @@
                 </div> <!-- /.logo-wrapper -->
                 <div class="col-md-8 col-sm-10 col-xs-4 main-menu text-right">
                     <ul class="menu-first hidden-sm hidden-xs">
-                        <li><a href="#" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
-                        <li class="active"><a href="#">{{ trans('messages.Blog') }}</a></li>
-                        <li><a href="#" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
+                        <li><a href="#empty-home" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
+                        <li class="active"><a href="#menu-wrapper">{{ trans('messages.Blog') }}</a></li>
+                        <li><a href="#empty-message" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
                         @if(Auth::check())
                             <li>
                                 <a href="#" style="color: #ec523f;" onclick="window.location.href ='{{ route('social.logout') }}'; ">
@@ -26,9 +26,9 @@
         </div> <!-- /#menu-wrapper -->
         <div class="menu-responsive hidden-md hidden-lg">
             <ul>
-                <li><a href="#" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
-                <li class="active"><a href="#" >{{ trans('messages.Blog') }}</a></li>
-                <li><a href="#" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
+                <li><a href="#empty-home" onclick="window.location.href ='{{ route('/') }}'; ">{{ trans('messages.Home') }}</a></li>
+                <li class="active"><a href="#menu-wrapper" >{{ trans('messages.Blog') }}</a></li>
+                <li><a href="#empty-message" onclick="window.location.href ='{{ route('message.list') }}'; ">{{ trans('messages.Messages') }}</a></li>
                 @if(Auth::check())
                     <li>
                         <a href="#" style="color: #ec523f;" onclick="window.location.href ='{{ route('social.logout') }}'; ">

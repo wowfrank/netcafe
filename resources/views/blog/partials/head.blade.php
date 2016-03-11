@@ -16,8 +16,8 @@
 <!-- Custom styles -->
 <link rel="stylesheet" href="/css/styles.css">
 
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-<script src="js/vendor/jquery-2.1.3.min.js"></script>
+<script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="/js/vendor/jquery-2.1.3.min.js"></script>
 
 @yield('styles')
 

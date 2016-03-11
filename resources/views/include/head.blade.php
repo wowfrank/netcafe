@@ -15,5 +15,5 @@ http://www.templatemo.com/free-website-templates/406-flex
 <link rel="stylesheet" href="/css/templatemo_misc.css">
 <link rel="stylesheet" href="/css/templatemo_style.css">
 
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-<script src="js/vendor/jquery-2.1.3.min.js"></script>
+<script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+<script src="/js/vendor/jquery-2.1.3.min.js"></script>

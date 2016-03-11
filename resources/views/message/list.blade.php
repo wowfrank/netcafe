@@ -34,7 +34,7 @@
 	}
 
 .spotlight .content {
-	width: 70%;
+	width: 80%;
 }
 
 	.spotlight .content > :last-child {
@@ -154,7 +154,7 @@
 				@if(count($messages) > 0)
 			        @foreach($messages as $message)
 				        <section class="spotlight">
-							<div class="image"><img src="{{ $message->user->avatar }}" alt="" /></div>
+							<div class="image" style="width: 64px"><img src="{{ $message->user->avatar }}" alt="" /></div>
 							<div class="content">
 								<h3> {{ $message->user->name}}</h3>
 								<p> {{	$message->msg_content }}</p>
