@@ -5,6 +5,9 @@
 	<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		@include('blog.partials.head')
+		<link rel="stylesheet" href="/css/bootstrap-switch.min.css">
+
+		<script src="/js/bootstrap-switch.min.js"></script>
 	</head>
 	<body>
 	<!--[if lt IE 7]>

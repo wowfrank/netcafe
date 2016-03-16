@@ -3,7 +3,7 @@
 @section('styles')
 <style>
 .content-section {
-		margin-top: 150px;
+		margin-top: 135px;
 		padding-top: 10px;
 }
 /* Spotlight */
@@ -96,7 +96,7 @@
 .wrapper {
 	padding: 4.5em 0 2.5em 0 ;
 	background-color: #ffffff;
-	border-bottom: solid 2px #eeeeee;
+	/*border-bottom: solid 2px #eeeeee;*/
 }
 
 .wrapper > .inner {
@@ -122,35 +122,66 @@
 @section('content')
 <div class="content-section" id="portfolio">
     <div class="container">
-        <div class="row">
-	        <div class="col-md-12">
+    	<form action="{{ route('message.store') }}" method="POST">
+	        <div class="row">
+		        <div class="col-md-6">
+					@include('admin.partials.success')
+					@include('admin.partials.errors')
 
-				@include('admin.partials.success')
-				@include('admin.partials.errors')
-
-	            <form action="{{ route('message.store') }}" method="POST">
-	            	@if(!Auth::check())
+				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+				    <input type="hidden" name="msg_uid" value="{{ !Auth::check() ? '': Auth::user()->id }}">
+				    <textarea class="form-control {{ Auth::check() ? '':'disabled' }}" rows="5" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}">{{ old('msg_content') }}</textarea>
+				    
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_service" checked data-size="small" data-label-text="{{ trans('messages.Cafe Service') }}" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_hygiene" checked data-size="small" data-label-text="{{ trans('messages.Cafe Hygiene') }}" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_hardware" checked data-size="small" data-label-text="{{ trans('messages.Cafe Hardware') }}" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_price" checked data-size="small" data-label-text="{{ trans('messages.Cafe Price') }}" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_environment" checked data-size="small" data-label-text="{{ trans('messages.Cafe Environment') }}" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+	        </div> <!-- /.row -->
+	        <div class="row">
+	        	<div class="col-md-2">
+			        @if(!Auth::check())
 						<div class="dropdown" style="width: 150px;">
 							<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">{{ trans('messages.Login') }}
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="{{ route('social.login', ['baidu']) }}"><img src="{{ asset('images/baidu-login-short.png') }}" /></a></li>
-								<li><a href="{{ route('social.login', ['qq']) }}"><img src="{{ asset('images/qq-login-short.png') }}" /></a></li>
-								<li><a href="{{ route('social.login', ['weibo']) }}"><img src="{{ asset('images/weibo-login-short.png') }}" /></a></li>
+								<li><a href="{{ route('social.login', ['baidu']) }}">{{ trans('messages.BAIDU') }}</a></li>
+								<li><a href="{{ route('social.login', ['qq']) }}">{{ trans('messages.QQ') }}</a></li>
+								<li><a href="{{ route('social.login', ['weibo']) }}">{{ trans('messages.SINA WEIBO') }}</a></li>
 							</ul>
 						</div>
+				    @else
+				    	<button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
 				    @endif
-				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-				    <input type="hidden" name="msg_uid" value="{{ !Auth::check() ? '': Auth::user()->id }}">
-				    <textarea class="form-control {{ Auth::check() ? '':'disabled' }}" rows="4" name="msg_content" id="msg_content" autofocus placeholder="{{ trans('messages.Please tell us your feelings') }}">{{ old('msg_content') }}</textarea>
-				    <button type="submit" class="btn btn-info btn-sm {{ Auth::check() ? '':'disabled' }}" name="sendMsg" id="sendMsg">{{ trans('messages.Send') }}</button>
-					
-				</form>
-			</div>
-        </div> <!-- /.row -->
+				</div>
+	        </div>
+        </form>
 
 		<section id="one" class="wrapper">
-			<div class="col-md-10">
+			<div class="col-md-12">
 				@if(count($messages) > 0)
 			        @foreach($messages as $message)
 				        <section class="spotlight">
@@ -167,4 +198,7 @@
 		</section>
     </div> <!-- /.container -->
 </div> <!-- /#portfolio -->
+<script type="text/javascript">
+	$(".cafe-votes").bootstrapSwitch();
+</script>
 @stop

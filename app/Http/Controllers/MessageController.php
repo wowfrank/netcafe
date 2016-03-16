@@ -29,6 +29,13 @@ class MessageController extends Controller
     public function storeMessage(MessageCreateRequest $request) {
     	if(!$request->ajax()) {
     		$message = Message::create($request->all());
+
+            $message->cafe_service = (null !== $request->input('cafe_service')) ? true : false;
+            $message->cafe_environment = (null !== $request->input('cafe_environment')) ? true : false;
+            $message->cafe_price = (null !== $request->input('cafe_price')) ? true : false;
+            $message->cafe_hygiene = (null !== $request->input('cafe_hygiene')) ? true : false;
+            $message->cafe_hardware = (null !== $request->input('cafe_hardware')) ? true : false;
+
     		$message->msg_ip = $request->ip();
     		$message->save();
 

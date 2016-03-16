@@ -1,7 +1,7 @@
 <?php $__env->startSection('styles'); ?>
 <style>
 .content-section {
-		margin-top: 150px;
+		margin-top: 135px;
 		padding-top: 10px;
 }
 /* Spotlight */
@@ -94,7 +94,7 @@
 .wrapper {
 	padding: 4.5em 0 2.5em 0 ;
 	background-color: #ffffff;
-	border-bottom: solid 2px #eeeeee;
+	/*border-bottom: solid 2px #eeeeee;*/
 }
 
 .wrapper > .inner {
@@ -120,36 +120,67 @@
 <?php $__env->startSection('content'); ?>
 <div class="content-section" id="portfolio">
     <div class="container">
-        <div class="row">
-	        <div class="col-md-12">
+    	<form action="<?php echo e(route('message.store')); ?>" method="POST">
+	        <div class="row">
+		        <div class="col-md-6">
+					<?php echo $__env->make('admin.partials.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+					<?php echo $__env->make('admin.partials.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-				<?php echo $__env->make('admin.partials.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-				<?php echo $__env->make('admin.partials.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-	            <form action="<?php echo e(route('message.store')); ?>" method="POST">
-	            	<?php if(!Auth::check()): ?>
+				    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+				    <input type="hidden" name="msg_uid" value="<?php echo e(!Auth::check() ? '': Auth::user()->id); ?>">
+				    <textarea class="form-control <?php echo e(Auth::check() ? '':'disabled'); ?>" rows="5" name="msg_content" id="msg_content" autofocus placeholder="<?php echo e(trans('messages.Please tell us your feelings')); ?>"><?php echo e(old('msg_content')); ?></textarea>
+				    
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_service" checked data-size="small" data-label-text="<?php echo e(trans('messages.Cafe Service')); ?>" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_hygiene" checked data-size="small" data-label-text="<?php echo e(trans('messages.Cafe Hygiene')); ?>" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_hardware" checked data-size="small" data-label-text="<?php echo e(trans('messages.Cafe Hardware')); ?>" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_price" checked data-size="small" data-label-text="<?php echo e(trans('messages.Cafe Price')); ?>" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info text-center">
+							<input type="checkbox" class="cafe-votes" name="cafe_environment" checked data-size="small" data-label-text="<?php echo e(trans('messages.Cafe Environment')); ?>" data-on-text="<span class='fa fa-thumbs-up fa-lg'></span>" data-off-text="<span class='fa fa-thumbs-down fa-lg'></span>">
+						</li>
+					</ul>
+				</div>
+	        </div> <!-- /.row -->
+	        <div class="row">
+	        	<div class="col-md-2">
+			        <?php if(!Auth::check()): ?>
 						<div class="dropdown" style="width: 150px;">
 							<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"><?php echo e(trans('messages.Login')); ?>
 
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo e(route('social.login', ['baidu'])); ?>"><img src="<?php echo e(asset('images/baidu-login-short.png')); ?>" /></a></li>
-								<li><a href="<?php echo e(route('social.login', ['qq'])); ?>"><img src="<?php echo e(asset('images/qq-login-short.png')); ?>" /></a></li>
-								<li><a href="<?php echo e(route('social.login', ['weibo'])); ?>"><img src="<?php echo e(asset('images/weibo-login-short.png')); ?>" /></a></li>
+								<li><a href="<?php echo e(route('social.login', ['baidu'])); ?>"><?php echo e(trans('messages.BAIDU')); ?></a></li>
+								<li><a href="<?php echo e(route('social.login', ['qq'])); ?>"><?php echo e(trans('messages.QQ')); ?></a></li>
+								<li><a href="<?php echo e(route('social.login', ['weibo'])); ?>"><?php echo e(trans('messages.SINA WEIBO')); ?></a></li>
 							</ul>
 						</div>
+				    <?php else: ?>
+				    	<button type="submit" class="btn btn-info btn-sm <?php echo e(Auth::check() ? '':'disabled'); ?>" name="sendMsg" id="sendMsg"><?php echo e(trans('messages.Send')); ?></button>
 				    <?php endif; ?>
-				    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-				    <input type="hidden" name="msg_uid" value="<?php echo e(!Auth::check() ? '': Auth::user()->id); ?>">
-				    <textarea class="form-control <?php echo e(Auth::check() ? '':'disabled'); ?>" rows="4" name="msg_content" id="msg_content" autofocus placeholder="<?php echo e(trans('messages.Please tell us your feelings')); ?>"><?php echo e(old('msg_content')); ?></textarea>
-				    <button type="submit" class="btn btn-info btn-sm <?php echo e(Auth::check() ? '':'disabled'); ?>" name="sendMsg" id="sendMsg"><?php echo e(trans('messages.Send')); ?></button>
-					
-				</form>
-			</div>
-        </div> <!-- /.row -->
+				</div>
+	        </div>
+        </form>
 
 		<section id="one" class="wrapper">
-			<div class="col-md-10">
+			<div class="col-md-12">
 				<?php if(count($messages) > 0): ?>
 			        <?php foreach($messages as $message): ?>
 				        <section class="spotlight">
@@ -166,6 +197,9 @@
 		</section>
     </div> <!-- /.container -->
 </div> <!-- /#portfolio -->
+<script type="text/javascript">
+	$(".cafe-votes").bootstrapSwitch();
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

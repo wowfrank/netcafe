@@ -5,6 +5,9 @@
 	<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		<?php echo $__env->make('blog.partials.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<link rel="stylesheet" href="/css/bootstrap-switch.min.css">
+
+		<script src="/js/bootstrap-switch.min.js"></script>
 	</head>
 	<body>
 	<!--[if lt IE 7]>

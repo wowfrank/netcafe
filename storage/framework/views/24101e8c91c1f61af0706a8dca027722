@@ -22,27 +22,27 @@
                 <ul class="progess-bars">
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><?php echo e(trans('messages.Cafe Service')); ?> 90%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($message->getPercentage('cafe_service')); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($message->getPercentage('cafe_service')); ?>%;"><?php echo e(trans('messages.Cafe Service')); ?> <?php echo e($message->getPercentage('cafe_service')); ?>%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"><?php echo e(trans('messages.Cafe Hygiene')); ?> 75%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($message->getPercentage('cafe_hygiene')); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($message->getPercentage('cafe_hygiene')); ?>%;"><?php echo e(trans('messages.Cafe Hygiene')); ?> <?php echo e($message->getPercentage('cafe_hygiene')); ?>%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"><?php echo e(trans('messages.Cafe Environment')); ?> 68%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($message->getPercentage('cafe_environment')); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($message->getPercentage('cafe_environment')); ?>%;"><?php echo e(trans('messages.Cafe Environment')); ?> <?php echo e($message->getPercentage('cafe_environment')); ?>%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"><?php echo e(trans('messages.Cafe Hardware')); ?> 95%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($message->getPercentage('cafe_hardware')); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($message->getPercentage('cafe_hardware')); ?>%;"><?php echo e(trans('messages.Cafe Hardware')); ?> <?php echo e($message->getPercentage('cafe_hardware')); ?>%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"><?php echo e(trans('messages.Cafe Price')); ?> 95%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($message->getPercentage('cafe_price')); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($message->getPercentage('cafe_price')); ?>%;"><?php echo e(trans('messages.Cafe Price')); ?> <?php echo e($message->getPercentage('cafe_price')); ?>%</div>
                         </div>
                     </li>
                 </ul>

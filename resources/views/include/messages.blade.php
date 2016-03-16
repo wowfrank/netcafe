@@ -22,27 +22,27 @@
                 <ul class="progess-bars">
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">{{ trans('messages.Cafe Service') }} 90%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $message->getPercentage('cafe_service') }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $message->getPercentage('cafe_service') }}%;">{{ trans('messages.Cafe Service') }} {{ $message->getPercentage('cafe_service') }}%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">{{ trans('messages.Cafe Hygiene') }} 75%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $message->getPercentage('cafe_hygiene') }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $message->getPercentage('cafe_hygiene') }}%;">{{ trans('messages.Cafe Hygiene') }} {{ $message->getPercentage('cafe_hygiene') }}%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;">{{ trans('messages.Cafe Environment') }} 68%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $message->getPercentage('cafe_environment') }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $message->getPercentage('cafe_environment') }}%;">{{ trans('messages.Cafe Environment') }} {{ $message->getPercentage('cafe_environment') }}%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">{{ trans('messages.Cafe Hardware') }} 95%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $message->getPercentage('cafe_hardware') }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $message->getPercentage('cafe_hardware') }}%;">{{ trans('messages.Cafe Hardware') }} {{ $message->getPercentage('cafe_hardware') }}%</div>
                         </div>
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">{{ trans('messages.Cafe Price') }} 95%</div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $message->getPercentage('cafe_price') }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $message->getPercentage('cafe_price') }}%;">{{ trans('messages.Cafe Price') }} {{ $message->getPercentage('cafe_price') }}%</div>
                         </div>
                     </li>
                 </ul>

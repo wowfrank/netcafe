@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9fb293ce1de4f6ac6ec2be1e62ddbf45",
-    "content-hash": "9acedc7a0cbef12ddf000159367f8730",
+    "hash": "f2f4b20a9268b883214c53873acc509a",
+    "content-hash": "913db3b818ad66c6ac1822ac95eb1ad6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2796,6 +2796,69 @@
                 "dump"
             ],
             "time": "2015-09-22 14:41:01"
+        },
+        {
+            "name": "tshafer/laravel-service-provider",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tshafer/laravel-service-provider.git",
+                "reference": "f3cc541e862566f6c1a6f478316bf355ceebf6f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tshafer/laravel-service-provider/zipball/f3cc541e862566f6c1a6f478316bf355ceebf6f6",
+                "reference": "f3cc541e862566f6c1a6f478316bf355ceebf6f6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~5.1|~5.2",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tshafer\\ServiceProvider\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "DRY Service Provider for Laravel 5 Packages",
+            "time": "2015-12-29 02:43:53"
+        },
+        {
+            "name": "tshafer/laravel-voteable",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tshafer/laravel-voteable.git",
+                "reference": "08c09e85f225228553b086ea7240bfbdfd840947"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tshafer/laravel-voteable/zipball/08c09e85f225228553b086ea7240bfbdfd840947",
+                "reference": "08c09e85f225228553b086ea7240bfbdfd840947",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.1|~5.2",
+                "php": ">=5.5.9",
+                "tshafer/laravel-service-provider": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tshafer\\Voteable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Voteable Polymorphic Eloquent Models for Laravel 5",
+            "time": "2015-12-29 02:43:39"
         },
         {
             "name": "vlucas/phpdotenv",

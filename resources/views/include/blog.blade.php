@@ -16,8 +16,11 @@
                             <h3><a id="blogTitle" href="/blog/{{ $blog->slug }}"> 
                                     {{ $blog->subtitle }}</a></h3>
                             <p>{!! str_limit(strip_tags($blog->content_raw), $limit = 150, $end = '...') !!}</p>
-                            <a href="/images/uploads/gallery/{{ $blog->page_image }}" data-rel="lightbox" class="expand">
-                                <i class="fa fa-search"></i>
+                            @if(false)
+                                <a href="/images/uploads/gallery/{{ $blog->page_image }}" data-rel="lightbox" class="expand">
+                                
+                                    <i class="fa fa-search"></i>
+                            @endif
                             </a>
                         </div> <!-- /.portfolio-overlay -->
                     </div> <!-- /.portfolio-thumb -->

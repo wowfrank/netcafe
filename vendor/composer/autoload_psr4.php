@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
+    'Tshafer\\Voteable\\' => array($vendorDir . '/tshafer/laravel-voteable/src'),
+    'Tshafer\\ServiceProvider\\' => array($vendorDir . '/tshafer/laravel-service-provider/src'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),

@@ -29,6 +29,8 @@ class HomeController extends Controller
 
     	$activityRand = Activity::getRandomNum(1, count($activities));
 
-    	return view('index', compact('covers', 'activities', 'blogs', 'teams', 'messages', 'activityRand'));
+        $message = new Message;
+
+    	return view('index', compact('covers', 'activities', 'blogs', 'teams', 'messages', 'activityRand', 'message'));
     }
 }

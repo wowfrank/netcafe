@@ -20,4 +20,16 @@ class Message extends Model
     {
         return $this->belongsTo('Netcafe\User', 'msg_uid');
     }
+
+    /*
+     * Calculate the percentage of pros and cons
+     *
+     */
+    public function getPercentage($name) 
+    {
+        $sumColumnPro = Message::where($name, 1)->count();
+        $sumColumn = Message::count();
+
+        return number_format($sumColumnPro*100/$sumColumn, 2);
+    }
 }
