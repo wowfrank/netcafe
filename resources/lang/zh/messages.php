@@ -171,7 +171,7 @@ return [
 	'QQ'				=> 'QQ',
 	'BAIDU'				=> '百度',
 	'SINA WEIBO'		=> '新浪微博',
-	''=> '',
+	'Message Content'	=> '内容',
 	''=> '',
 	''=> '',
 	''=> '',

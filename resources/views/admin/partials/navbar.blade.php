@@ -19,6 +19,9 @@
 		<li @if (Request::is('admin/team*')) class="active" @endif>
 			<a href="/admin/team">{{ trans('messages.Teams') }}</a>
 		</li>
+		<li @if (Request::is('admin/message*')) class="active" @endif>
+			<a href="/admin/message">{{ trans('messages.Messages') }}</a>
+		</li>
 	@endif
 </ul>
 

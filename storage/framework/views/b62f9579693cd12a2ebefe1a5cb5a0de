@@ -19,6 +19,9 @@
 		<li <?php if(Request::is('admin/team*')): ?> class="active" <?php endif; ?>>
 			<a href="/admin/team"><?php echo e(trans('messages.Teams')); ?></a>
 		</li>
+		<li <?php if(Request::is('admin/message*')): ?> class="active" <?php endif; ?>>
+			<a href="/admin/message"><?php echo e(trans('messages.Messages')); ?></a>
+		</li>
 	<?php endif; ?>
 </ul>
 

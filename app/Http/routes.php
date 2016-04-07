@@ -44,6 +44,7 @@ Route::group([
 			Route::resource('admin/activity', 'ActivityController', ['except' => 'show']);
 			Route::resource('admin/team', 'TeamController', ['except' => 'show']);
 			Route::resource('admin/cover', 'CoverController', ['except' => 'show']);
+			Route::resource('admin/message', 'MsgController', ['only' => ['index', 'destroy']]);
 
 			Route::get('admin/upload', 'UploadController@index');
 			Route::post('admin/upload/file', 'UploadController@uploadFile');
