@@ -4402,5 +4402,53 @@
             "testing",
             "tests"
         ]
+    },
+    {
+        "name": "latrell/alipay",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Latrell/Alipay.git",
+            "reference": "f6b01e59e8a35f5e44038c8cab668523ab34efb4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Latrell/Alipay/zipball/f6b01e59e8a35f5e44038c8cab668523ab34efb4",
+            "reference": "f6b01e59e8a35f5e44038c8cab668523ab34efb4",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "5.*",
+            "illuminate/events": "5.*",
+            "illuminate/support": "5.*",
+            "php": ">=5.4.0"
+        },
+        "time": "2016-03-11 01:49:23",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Latrell\\Alipay\\": "src/Latrell/Alipay/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Latrell Chan",
+                "email": "i@latrell.me"
+            }
+        ],
+        "description": "支付宝SDK在Laravel5封装包。",
+        "keywords": [
+            "Alipay SDK",
+            "alipay",
+            "l5",
+            "laravel",
+            "laravel 5"
+        ]
     }
 ]

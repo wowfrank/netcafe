@@ -160,6 +160,11 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
 
+        /*
+         * Alipay Service provider
+         */
+        Latrell\Alipay\AlipayServiceProvider::class,
+
     ],
 
     /*

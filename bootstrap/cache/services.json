@@ -29,7 +29,8 @@
         "Netcafe\\Providers\\RouteServiceProvider",
         "Illuminate\\Html\\HtmlServiceProvider",
         "Laravel\\Socialite\\SocialiteServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider"
+        "Intervention\\Image\\ImageServiceProvider",
+        "Latrell\\Alipay\\AlipayServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -47,7 +48,8 @@
         "Netcafe\\Providers\\AuthServiceProvider",
         "Netcafe\\Providers\\EventServiceProvider",
         "Netcafe\\Providers\\RouteServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider"
+        "Intervention\\Image\\ImageServiceProvider",
+        "Latrell\\Alipay\\AlipayServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

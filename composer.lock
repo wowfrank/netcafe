@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9fb293ce1de4f6ac6ec2be1e62ddbf45",
-    "content-hash": "9acedc7a0cbef12ddf000159367f8730",
+    "hash": "127e78d3a5939ae7d4b17c7bc90d383d",
+    "content-hash": "d6b63aaa3aa8ce4bb4ad155a9a89168c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1374,6 +1374,52 @@
                 "oauth"
             ],
             "time": "2016-03-21 14:30:30"
+        },
+        {
+            "name": "latrell/alipay",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Latrell/Alipay.git",
+                "reference": "f6b01e59e8a35f5e44038c8cab668523ab34efb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Latrell/Alipay/zipball/f6b01e59e8a35f5e44038c8cab668523ab34efb4",
+                "reference": "f6b01e59e8a35f5e44038c8cab668523ab34efb4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.*",
+                "illuminate/events": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Latrell\\Alipay\\": "src/Latrell/Alipay/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Latrell Chan",
+                    "email": "i@latrell.me"
+                }
+            ],
+            "description": "支付宝SDK在Laravel5封装包。",
+            "keywords": [
+                "Alipay SDK",
+                "alipay",
+                "l5",
+                "laravel",
+                "laravel 5"
+            ],
+            "time": "2016-03-11 01:49:23"
         },
         {
             "name": "league/flysystem",
@@ -4269,7 +4315,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "michelf/php-smartypants": 10
+        "michelf/php-smartypants": 10,
+        "latrell/alipay": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

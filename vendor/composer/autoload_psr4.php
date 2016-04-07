@@ -32,6 +32,7 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\OAuth1\\' => array($vendorDir . '/league/oauth1-client/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'Latrell\\Alipay\\' => array($vendorDir . '/latrell/alipay/src/Latrell/Alipay'),
     'Laravel\\Socialite\\' => array($vendorDir . '/laravel/socialite/src'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\Html\\' => array($vendorDir . '/illuminate/html'),
