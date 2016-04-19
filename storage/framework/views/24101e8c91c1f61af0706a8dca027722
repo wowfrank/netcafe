@@ -3,7 +3,9 @@
         <div class="row">
             <div class="heading-section col-md-12 text-center">
                 <h2><a href="/message/" class="expend"><?php echo e(trans('messages.Our Messages')); ?></a></h2>
-                <p><?php echo e(trans('messages.Check out our messages')); ?></p>
+                <?php if(false): ?>
+                    <p><?php echo e(trans('messages.Check out our messages')); ?></p>
+                <?php endif; ?>
             </div> <!-- /.heading-section -->
         </div> <!-- /.row -->
         <div class="row">

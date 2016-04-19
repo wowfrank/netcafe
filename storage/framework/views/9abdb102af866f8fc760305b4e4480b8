@@ -4,7 +4,9 @@
         <div class="row">
             <div class="heading-section col-md-12 text-center">
                 <h2><a href="/blog/" class="expend"><?php echo e(trans('messages.Our Blogs')); ?></a></h2>
-                <p><?php echo e(trans('messages.What we have done so far')); ?></p>
+                <?php if(false): ?>
+                    <p><?php echo e(trans('messages.What we have done so far')); ?></p>
+                <?php endif; ?>
             </div> <!-- /.heading-section -->
         </div> <!-- /.row -->
         <div class="row">

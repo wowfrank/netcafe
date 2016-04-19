@@ -2,8 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="heading-section col-md-12 text-center">
-                <h2><a href="#" class="expend disabled">{{ trans('messages.Our Activities') }}</a></h2>
-                <p>{{ trans("messages.Check out what's going on here") }}</p>
+                <h2><a class="expend disabled">{{ trans('messages.Our Activities') }}</a></h2>
+                @if(false)
+                    <p>{{ trans("messages.Check out what's going on here") }}</p>
+                @endif
             </div> <!-- /.heading-section -->
         </div> <!-- /.row -->
 

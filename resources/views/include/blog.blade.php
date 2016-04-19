@@ -4,7 +4,9 @@
         <div class="row">
             <div class="heading-section col-md-12 text-center">
                 <h2><a href="/blog/" class="expend">{{ trans('messages.Our Blogs') }}</a></h2>
-                <p>{{ trans('messages.What we have done so far') }}</p>
+                @if(false)
+                    <p>{{ trans('messages.What we have done so far') }}</p>
+                @endif
             </div> <!-- /.heading-section -->
         </div> <!-- /.row -->
         <div class="row">

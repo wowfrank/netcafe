@@ -3,7 +3,9 @@
         <div class="row">
             <div class="heading-section col-md-12 text-center">
                 <h2><a href="/message/" class="expend">{{ trans('messages.Our Messages') }}</a></h2>
-                <p>{{ trans('messages.Check out our messages') }}</p>
+                @if(false)
+                    <p>{{ trans('messages.Check out our messages') }}</p>
+                @endif
             </div> <!-- /.heading-section -->
         </div> <!-- /.row -->
         <div class="row">
