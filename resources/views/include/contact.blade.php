@@ -11,23 +11,19 @@
         
         <div class="row" id="contact-form">
             <div class="col-md-7 col-sm-6">
-                <p>Flex is free responsive HTML5 template by 
-                    <span class="blue">template</span>
-                    <span class="green">mo</span> 
-                    that can be used for any commercial or personal website. 
-                    Slider images and portfolio images are from <a rel="nofollow" href="http://unsplash.com">Unsplash</a> website. 
-                    Duis ullamcorper tortor tellus. Ut diam libero, ultricies non augue a, mollis congue risus. 
-                    Fusce a quam eget nisi luctus imperdiet. Aenean semper erat neque. 
-                    Nunc et scelerisque nunc, in adipiscing magna. Phasellus in erat non tellus molestie sagittis sed a justo. 
-                    Nam vehicula volutpat nibh, in posuere dolor dictum sit amet.<br><br>
-		            Consectetur quod at aperiam corporis totam. Nesciunt minima laborum sapiente totam facere unde est cum quia. 
-                    Hic, suscipit, praesentium earum quod ea distinctio impedit ullam deserunt minus dolore quibusdam quis saepe aliquam doloribus voluptatibus eum excepturi.
+                <p><span class="blue">熊猫网咖</span>于2016年在浙江东阳创立，坐落于<span class="green">东阳市环城北路与十字街交叉路口</span>。我们拥有一支年轻的队伍，以及对电竞和理想<span class="red">坚持不懈的追求</span>。我们本着为广大电竞爱好者提供更好的服务的初衷，以创造健康上网、快乐游戏的生活为使命，不断努力。<br><br>
+                这里是一个多元化产业的平台，只要你的目标是让自己更加的优秀和更加的有品质，你会爱上我们的环境。我们期待你可以充分发挥自己的能力，敬业进取，一起把<span class="blue">熊猫网咖</span>照顾的更好。 <br><br>
+
+                <span class="blue">熊猫网咖</span>的企业愿景：<span class="red">发自内心的微笑</span><br>
+                <span class="blue">熊猫网咖</span>的服务理念：<span class="red">以客户的满意为根本</span><br>
+                <span class="blue">熊猫网咖</span>的经营理念：<span class="red">诚信--创新--共赢</span><br>
+                <span class="blue">熊猫网咖</span>的作风准则：<span class="red">高效--严谨--坚守承诺</span>
             	</p>
                 <ul class="contact-info">
                     <li>{{ trans('messages.Phone') }}: <a href="tel: 010-080-0180">010-080-0180</a></li>
-                    <li>{{ trans('messages.Wechat') }}: xxxxxxxxx</li>
+                    @if(false) <li>{{ trans('messages.Wechat') }}: xxxxxxxxx</li> @endif
                     <li>{{ trans('messages.Email') }}: <a href="mailto:frank.qf.cn@gmail.com">frank.qf.cn@gmail.com</a></li>
-                    <li>{{ trans('messages.Address') }}: 123 Premium Studio, Thamine Street, Digital Estate</li>
+                    <li>{{ trans('messages.Address') }}: 浙江省东阳市十字街163号-209</li>
                 </ul>
                 <!-- spacing for mobile viewing --><br><br>
             </div> <!-- /.col-md-7 -->

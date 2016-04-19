@@ -26,6 +26,10 @@ body {
 	color: #090;
 }
 
+.red {
+  color: #FA5502;
+}
+
 ol,
 ul {
   list-style: none;
